@@ -1,0 +1,5 @@
+{
+  "name": "Habitly - Minimalist Habit Tracker",
+  "description": "A clean, iOS-inspired habit diary that helps you build routines through simple logging and insightful recaps of your progress across weekly, monthly, quarterly, and yearly views.",
+  "requestFramePermissions": []
+}

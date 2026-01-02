@@ -1,0 +1,18 @@
+
+{
+  "name": "Habitly Tracker",
+  "short_name": "Habitly",
+  "description": "Minimalist Habit Tracker",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#f8f9fa",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3209/3209265.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
