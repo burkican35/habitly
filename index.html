@@ -3,53 +3,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
     <title>Habitly</title>
     
-    <!-- PWA / Mobile tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Habitly">
-    <meta name="theme-color" content="#f8f9fa">
+    <meta name="theme-color" content="#ffffff">
     <link rel="manifest" href="manifest.json">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ios-blue: #007AFF;
+            --ios-bg: #F2F2F7;
+        }
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            background-color: var(--ios-bg);
+            color: #000000;
+            overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
-            background-color: #f8f9fa;
-            user-select: none; /* Make it feel more like an app */
-            overscroll-behavior-y: contain; /* Disable pull-to-refresh */
-        }
-        .ios-blur {
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        /* Custom scrollbar for a cleaner look */
-        ::-webkit-scrollbar {
-            width: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #e2e8f0;
-            border-radius: 10px;
         }
         
-        /* Safe area support for notched phones */
-        .pb-safe {
+        /* Bottom Tab Bar Blur */
+        .tab-bar {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-top: 0.5px solid rgba(0,0,0,0.1);
             padding-bottom: env(safe-area-inset-bottom);
         }
-        .pt-safe {
-            padding-top: env(safe-area-inset-top);
+
+        .ios-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .large-title {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* iOS-style slide up modal */
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .ios-modal {
+            animation: slideUp 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
         }
     </style>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./service-worker.js');
+        });
+      }
+    </script>
 <script type="importmap">
 {
   "imports": {
@@ -64,7 +84,7 @@
 }
 </script>
 </head>
-<body class="overflow-x-hidden antialiased text-gray-900">
+<body class="antialiased">
     <div id="root"></div>
 </body>
 </html>

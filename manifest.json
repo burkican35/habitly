@@ -1,18 +1,25 @@
 
 {
-  "name": "Habitly Tracker",
+  "name": "Habitly iOS",
   "short_name": "Habitly",
-  "description": "Minimalist Habit Tracker",
-  "start_url": ".",
+  "description": "Premium habit tracker and 2026/2027 vision planning tool for iOS.",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#f8f9fa",
-  "theme_color": "#f8f9fa",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
+  "background_color": "#F2F2F7",
+  "theme_color": "#007AFF",
+  "categories": ["productivity", "health", "lifestyle"],
   "icons": [
     {
       "src": "https://cdn-icons-png.flaticon.com/512/3209/3209265.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3209/3209265.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ]
 }
